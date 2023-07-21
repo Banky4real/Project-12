@@ -41,3 +41,23 @@
 
 ### Our Jenkins Pipeline Looking neat, and Less Complex
 ![Less-Complex-jenkins-pipeline](./Images/Less-Complex-jenkins-pipeline.png)
+
+## Refactoring Ansible by Importing Playbooks for different tasks
+
+### This is achieved by having a parent playbook named site.yml which will be used as a refference point for other playbooks (Child Playbooks)
+
+### Our Folder structure after having our parent playbook and child playbooks
+
+![Folder-structure-for-our-playbook-imports](./Images/folder-structure-for-ansible-config-mgt.png)
+
+### Running our Parent playbook site.yml against our dev environment for the removal(deleting) of wireshark, making use of the built-in ansible import-playbook Module and refferencing the child playbook static-assignment/common-del.yml
+` ---`
+` - hosts: all `
+` - import_playbook: ../static-assignments/ ` `common-del.yml `
+
+` ansible-playbook -i inventory/dev.yml playbooks/site.yml `
+![running-ansible-playbook-import-against-dev-environment](./Images/running-ansible-playbook-import-against-dev-environment-for-deleting-wireshark.png)
+
+### Confirmation of removal(deleting) wireshark on all our target servers
+
+![wireshark-removal-confirmation-on-all-servers](./Images/wireshark-removal-confirmation-on-all-servers.png)
