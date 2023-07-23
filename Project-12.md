@@ -61,3 +61,24 @@
 ### Confirmation of removal(deleting) wireshark on all our target servers
 
 ![wireshark-removal-confirmation-on-all-servers](./Images/wireshark-removal-confirmation-on-all-servers.png)
+
+## Configuring UAT webserver with a role webserver
+
+### Role structure of our webserver Created with Ansible Galaxy
+
+![role-structure-created-with-ansible-galaxy](./Images/role-structure-created-with-ansible-galaxy.png)
+
+## Refferencing our webserver role inside static-assignments folder which is a container for our child playbooks
+
+### Creating a separate assignment for our webserver role in static-assignments folder
+
+`touch uat-webservers.yml`
+
+![refferencing-roles-in-child-playbook-container-static-assignments](./Images/refferencing-roles-in-child-playbook-container-static-assignments.png)
+
+### Importing our roles playbook inside our parent playbook site.yml using the built-in ansible import playbook
+
+`- hosts: uat-webservers `
+` - import_playbook: ../static-assignments/uat-webservers.yml `
+
+![importing-uat-webservers-playbook](./Images/importing-uat-webservers-playbook-inside-parent-playbook.png)
