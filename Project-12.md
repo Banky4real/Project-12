@@ -82,3 +82,19 @@
 ` - import_playbook: ../static-assignments/uat-webservers.yml `
 
 ![importing-uat-webservers-playbook](./Images/importing-uat-webservers-playbook-inside-parent-playbook.png)
+
+### Running our playbook against the UAT inventory for Deploying our tooling Website on the UAT servers
+
+`ansible-playbook -i inventory/uat.yml playbooks/site`
+
+![ansible-playbook result for UAT webservers](./Images/running-ansible-playbook-import-against-uat-servers.png)
+
+### Tooling website live on both of our UAT webservers
+
+`http://34.203.189.68/index.php`
+
+`http://54.211.141.19/index.php`
+
+![ansible-playbook result for UAT webservers](./Images/tooling-website-deployed-on-both-of-our-UAT-webservers.png)
+
+![ansible-playbook result for UAT webservers](./Images/tooling-website-deployed-on-both-of-our-UAT-webservers-2.png)
